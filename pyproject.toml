@@ -12,8 +12,13 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
 ]
-description = "One line description of your module"
-dependencies = [] # Add project dependencies here, e.g. ["click", "numpy"]
+description = "A REST API which executes jupyter notebooks via papermill"
+dependencies = [
+    "uvicorn",
+    "fastapi",
+    "papermill[black]",
+    "pydantic[dotenv]",
+] # Add project dependencies here, e.g. ["click", "numpy"]
 dynamic = ["version"]
 license.file = "LICENSE"
 readme = "README.rst"
@@ -25,6 +30,7 @@ dev = [
     "mypy",
     "flake8-isort",
     "Flake8-pyproject",
+    "ipykernel",
     "pipdeptree",
     "pre-commit",
     "pydata-sphinx-theme>=0.12",

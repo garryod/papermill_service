@@ -1,14 +1,15 @@
 from argparse import ArgumentParser
 
-from . import __version__
+from uvicorn import run
 
-__all__ = ["main"]
+from . import __version__
 
 
 def main(args=None):
     parser = ArgumentParser()
     parser.add_argument("--version", action="version", version=__version__)
     args = parser.parse_args(args)
+    run("papermill_service.app:app")
 
 
 # test with: python -m papermill_service
