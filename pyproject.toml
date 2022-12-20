@@ -87,7 +87,11 @@ addopts = """
     --cov=papermill_service --cov-report term --cov-report xml:cov.xml
     """
 # https://iscinumpy.gitlab.io/post/bound-version-constraints/#watch-for-warnings
-filterwarnings = "error"
+filterwarnings = [
+    "error",
+    "default:.*imp module.*:DeprecationWarning",     # Warn of deprecated imp module in use by ansiwrap via papermill
+    "default:.*Jupyter.*paths.*:DeprecationWarning", # Warn of jupyter switch to playformdirs
+]
 # Doctest python code in docs, python code in src docstrings, test functions in tests
 testpaths = "docs src tests"
 
