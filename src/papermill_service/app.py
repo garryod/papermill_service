@@ -1,3 +1,5 @@
+from typing import cast
+
 from fastapi import Body, Depends, FastAPI
 from nbformat import NotebookNode
 from papermill import execute_notebook, inspect_notebook
@@ -20,7 +22,7 @@ async def params(settings: Settings = Depends(get_settings)):
 
 @app.get("/run")
 async def run(parameters: dict = Body(), settings: Settings = Depends(get_settings)):
-    notebook: NotebookNode = execute_notebook(
-        settings.notebook_path, None, parameters=parameters
-    )
-    return notebook.dict()
+    return cast(
+        NotebookNode,
+        execute_notebook(settings.notebook_path, None, parameters=parameters),
+    ).dict()
