@@ -37,6 +37,6 @@ async def start(
     return dict(task_id=task_id)
 
 
-@app.get("/fetch")
+@app.get("/fetch/{task_id}")
 async def fetch(task_id: UUID):
-    return get_execution_status(task_id).dict()["status"]
+    return get_execution_status(task_id).status
