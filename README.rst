@@ -3,7 +3,7 @@ papermill_service
 
 |code_ci| |docs_ci| |coverage| |pypi_version| |license|
 
-This package provides a service-line runner for jupyter notebooks, combining fastAPI and papermill.
+This package provides a service-line runner for jupyter notebooks, combining FastAPI and papermill.
 
 ============== ==============================================================
 PyPI           ``pip install papermill_service``
@@ -12,12 +12,11 @@ Documentation  https://garryod.github.io/papermill_service
 Releases       https://github.com/garryod/papermill_service/releases
 ============== ==============================================================
 
-To configure th
-
-
 To start the service, simply run::
 
     $ NOTEBOOK_PATH=/path/to/notebook.ipynb python -m papermill_service
+
+To view the API docs navigate to :code:`http://localhost:8000/docs`
 
 .. |code_ci| image:: https://github.com/garryod/papermill_service/actions/workflows/code.yml/badge.svg?branch=main
     :target: https://github.com/garryod/papermill_service/actions/workflows/code.yml
